@@ -34,7 +34,12 @@ public class EmailController implements ResourceUtil {
 		this.emailService = emailService;
 	}
 
-	@RequestMapping({ "/list", "/" })
+	@RequestMapping
+	public ResponseEntity<?> emails() {
+		return listEmails();
+	}
+
+	@RequestMapping({ "/list" })
 	public ResponseEntity<?> listEmails() {
 		return ResponseUtility.ok(emailService.listAll());
 	}
